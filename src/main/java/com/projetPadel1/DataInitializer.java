@@ -1,9 +1,10 @@
 package com.projetPadel1;
 
-import com.padelPlay.entity.*;
-import com.padelPlay.entity.enums.TypeAdministrateur;
-import com.padelPlay.entity.enums.TypeMembre;
-import com.padelPlay.repository.*;
+import com.projetPadel1.entity.*;
+import com.projetPadel1.entity.enums.TypeAdministrateur;
+import com.projetPadel1.entity.enums.TypeMembre;
+import com.projetPadel1.repository.*;
+import com.projetPadel1.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
