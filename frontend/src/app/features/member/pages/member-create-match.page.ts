@@ -359,20 +359,8 @@ export class MemberCreateMatchPage {
           console.error('error.error =', error?.error);
           console.error('error.error.message =', error?.error?.message);
           console.error('error.message =', error?.message);
-          // Affichage du message backend exact si présent
           this.loading.set(false);
-          // Extraction prioritaire du message backend exact
-          let backendMessage = '';
-          if (error?.error?.message) {
-            backendMessage = error.error.message;
-          } else if (error?.message) {
-            backendMessage = error.message;
-          }
-          if (backendMessage) {
-            this.errorMessage.set('⛔ ' + backendMessage);
-          } else {
-            this.errorMessage.set(this.toFriendlyCreationErrorMessage(error));
-          }
+          this.errorMessage.set(this.toFriendlyCreationErrorMessage(error));
         }
       });
   }

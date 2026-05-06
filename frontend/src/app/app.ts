@@ -10,207 +10,133 @@ import { MemberSessionService } from './core/auth/member-session.service';
   selector: 'app-root',
   imports: [CommonModule, RouterModule, MatToolbarModule, MatButtonModule],
   template: `
-    <header class="app-header">
-      <div class="app-header-inner">
-        <!-- Logo -->
-        <a routerLink="/" class="app-logo">
-          <span class="app-logo-badge">🎾</span>
-          <span class="app-logo-text">PadelPlay</span>
-        </a>
+    <!-- Header Principal -->
+    <header class="sticky top-0 z-40 w-full bg-gradient-to-r from-padel-700 via-court-700 to-padel-700 shadow-lg backdrop-blur-sm border-b border-white/10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between flex-wrap gap-2">
 
-        <!-- Nav principale -->
-        <nav class="app-nav">
-          <a routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Accueil</a>
+          <!-- Logo -->
+          <a routerLink="/" class="inline-flex items-center gap-2 flex-shrink-0 group">
+            <div class="relative inline-flex items-center justify-center w-10 h-10 bg-white/20 rounded-lg group-hover:bg-white/30 transition-all duration-200">
+              <span class="text-2xl group-hover:animate-bounce">🎾</span>
+            </div>
+            <span class="text-xl font-black text-white tracking-tight hidden sm:inline">PadelPlay</span>
+          </a>
 
-          @if (!adminSession.isAuthenticated()) {
-            <a routerLink="/admin/login" class="nav-link">Admin</a>
-          }
+          <!-- Navigation Principale -->
+          <nav class="flex items-center gap-1 justify-center flex-1">
+            <a routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }"
+               class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+              Accueil
+            </a>
 
-          @if (!memberSession.isAuthenticated()) {
-            <a routerLink="/member" class="nav-btn-outline">Espace membre</a>
-          }
+            @if (!adminSession.isAuthenticated()) {
+              <a routerLink="/admin/login" class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                Admin
+              </a>
+            }
 
-          @if (memberSession.isAuthenticated()) {
-            <div class="nav-divider"></div>
-            <a routerLink="/member/profile" routerLinkActive="nav-active" class="nav-link">Profil</a>
-            <a routerLink="/member/matches" routerLinkActive="nav-active" class="nav-link">Matchs</a>
-            <a routerLink="/member/reservations" routerLinkActive="nav-active" class="nav-link">Réservations</a>
-            <a routerLink="/member/payments" routerLinkActive="nav-active" class="nav-link">Paiements</a>
-            <div class="nav-divider"></div>
-            <a routerLink="/member/matches/new" class="nav-btn-create">➕ Créer un match</a>
-            <a routerLink="/member/matches/new" [queryParams]="{type:'PUBLIC'}" class="nav-btn-green">🎾 Match PUBLIC</a>
-            <a routerLink="/member/matches/new" [queryParams]="{type:'PRIVE'}" class="nav-btn-purple">🔒 Match PRIVÉ</a>
-            <div class="nav-divider"></div>
-            <button class="nav-btn-logout" type="button" (click)="logoutMember()">Déconnexion</button>
-          }
+            @if (!memberSession.isAuthenticated()) {
+              <a routerLink="/member" class="px-4 py-1.5 text-sm font-semibold text-white border-2 border-white/50 hover:border-white hover:bg-white/10 rounded-full transition-all duration-200">
+                👤 Espace membre
+              </a>
+            }
 
-          @if (adminSession.isAuthenticated()) {
-            <div class="nav-divider"></div>
-            <a routerLink="/admin" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Dashboard</a>
-            <a routerLink="/admin/members" routerLinkActive="nav-active" class="nav-link">Membres</a>
-            <a routerLink="/admin/matches" routerLinkActive="nav-active" class="nav-link">Matchs</a>
-            <a routerLink="/admin/sites" routerLinkActive="nav-active" class="nav-link">Sites</a>
-            <a routerLink="/admin/terrains" routerLinkActive="nav-active" class="nav-link">Terrains</a>
-            <a routerLink="/admin/fermetures" routerLinkActive="nav-active" class="nav-link">Fermetures</a>
-            <div class="nav-divider"></div>
-            <button class="nav-btn-logout" type="button" (click)="logoutAdmin()">Déconnexion</button>
-          }
-        </nav>
+            @if (memberSession.isAuthenticated()) {
+              <span class="w-1 h-6 bg-white/20 mx-1"></span>
+              <a routerLink="/member/profile" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                👤 Profil
+              </a>
+              <a routerLink="/member/matches" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                🎾 Matchs
+              </a>
+              <a routerLink="/member/reservations" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                📅 Réservations
+              </a>
+              <a routerLink="/member/payments" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                💰 Paiements
+              </a>
+
+              <span class="w-1 h-6 bg-white/20 mx-1"></span>
+
+              <a routerLink="/member/matches/new" class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg rounded-full transition-all duration-200 hover:scale-105">
+                ➕ Match
+              </a>
+              <a routerLink="/member/matches/new" [queryParams]="{type:'PUBLIC'}"
+                 class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-padel-500 to-padel-600 hover:shadow-padel rounded-full transition-all duration-200 hover:scale-105">
+                🎾 PUBLIC
+              </a>
+              <a routerLink="/member/matches/new" [queryParams]="{type:'PRIVE'}"
+                 class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-violet-600 hover:shadow-lg rounded-full transition-all duration-200 hover:scale-105">
+                🔒 PRIVÉ
+              </a>
+
+              <span class="w-1 h-6 bg-white/20 mx-1"></span>
+
+              <button (click)="logoutMember()" type="button"
+                      class="px-4 py-1.5 text-xs font-semibold text-red-200 border-2 border-red-400/50 hover:border-red-400 hover:bg-red-500/20 rounded-full transition-all duration-200">
+                🚪 Déco
+              </button>
+            }
+
+            @if (adminSession.isAuthenticated()) {
+              <span class="w-1 h-6 bg-white/20 mx-1"></span>
+              <a routerLink="/admin" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                📊 Dashboard
+              </a>
+              <a routerLink="/admin/members" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                👥 Membres
+              </a>
+              <a routerLink="/admin/matches" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                🎾 Matchs
+              </a>
+              <a routerLink="/admin/sites" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                🏢 Sites
+              </a>
+              <a routerLink="/admin/terrains" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                📍 Terrains
+              </a>
+              <a routerLink="/admin/fermetures" routerLinkActive="nav-active"
+                 class="px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">
+                🔒 Fermetures
+              </a>
+
+              <span class="w-1 h-6 bg-white/20 mx-1"></span>
+
+              <button (click)="logoutAdmin()" type="button"
+                      class="px-4 py-1.5 text-xs font-semibold text-red-200 border-2 border-red-400/50 hover:border-red-400 hover:bg-red-500/20 rounded-full transition-all duration-200">
+                🚪 Déco
+              </button>
+            }
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main class="app-main-shell">
+    <!-- Main Content -->
+    <main class="min-h-[calc(100vh-64px)] pb-10 bg-gradient-to-b from-slate-50 via-blue-50 to-slate-50">
       <router-outlet></router-outlet>
     </main>
   `,
   styles: [`
-    .app-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0369a1 100%);
-      box-shadow: 0 2px 16px rgba(3,105,161,0.25);
+    :host {
+      display: block;
+      min-height: 100vh;
     }
 
-    .app-header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0.6rem 1.5rem;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .app-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      margin-right: 0.5rem;
-      flex-shrink: 0;
-    }
-    .app-logo-badge {
-      font-size: 1.5rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      background: rgba(255,255,255,0.15);
-      border-radius: 8px;
-    }
-    .app-logo-text {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.02em;
-    }
-
-    .app-nav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      flex: 1;
-    }
-
-    .nav-link {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-    .nav-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
-    .nav-active { background: rgba(255,255,255,0.2) !important; color: #fff !important; font-weight: 700; }
-
-    .nav-divider {
-      width: 1px;
-      height: 1.5rem;
-      background: rgba(255,255,255,0.25);
-      margin: 0 0.25rem;
-      flex-shrink: 0;
-    }
-
-    .nav-btn-outline {
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.5);
-      border-radius: 9999px;
-      padding: 0.35rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .nav-btn-outline:hover { background: rgba(255,255,255,0.15); }
-
-    .nav-btn-green {
-      background: linear-gradient(135deg, #15803d, #16a34a);
-      color: #fff;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.4rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(21,128,61,0.35);
-      transition: transform 0.15s;
-    }
-    .nav-btn-green:hover { transform: translateY(-1px); }
-
-    .nav-btn-create {
-      background: linear-gradient(135deg, #ea580c, #f97316);
-      color: #fff;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.4rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(234,88,12,0.35);
-      transition: transform 0.15s;
-    }
-    .nav-btn-create:hover { transform: translateY(-1px); }
-
-    .nav-btn-purple {
-      background: linear-gradient(135deg, #6d28d9, #7c3aed);
-      color: #fff;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.4rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(109,40,217,0.35);
-      transition: transform 0.15s;
-    }
-    .nav-btn-purple:hover { transform: translateY(-1px); }
-
-    .nav-btn-logout {
-      background: rgba(239,68,68,0.15);
-      color: #fca5a5;
-      border: 1.5px solid rgba(239,68,68,0.35);
-      border-radius: 9999px;
-      padding: 0.35rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .nav-btn-logout:hover { background: rgba(239,68,68,0.25); }
-
-    .app-main-shell {
-      min-height: calc(100vh - 58px);
-      background: linear-gradient(180deg, #f0f9ff 0%, #f8fafc 100%);
+    .nav-active {
+      @apply text-white !important;
+      @apply bg-white/20 !important;
+      @apply font-bold !important;
     }
   `]
 })

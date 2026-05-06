@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { of } from 'rxjs';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { AuthApiService } from '../api/auth-api.service';
 import { MEMBER_SESSION_KEY, MemberSessionService } from './member-session.service';
 
 describe('MemberSessionService', () => {
@@ -8,8 +10,20 @@ describe('MemberSessionService', () => {
     TestBed.resetTestingModule();
   });
 
+  const configureTestingModule = () =>
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: AuthApiService,
+          useValue: {
+            loginMembre: vi.fn().mockReturnValue(of(null))
+          }
+        }
+      ]
+    });
+
   it('should persist and restore a member session', () => {
-    TestBed.configureTestingModule({});
+    configureTestingModule();
     const service = TestBed.inject(MemberSessionService);
 
     service.setMember({
@@ -45,7 +59,7 @@ describe('MemberSessionService', () => {
       })
     );
 
-    TestBed.configureTestingModule({});
+    configureTestingModule();
     const service = TestBed.inject(MemberSessionService);
 
     expect(service.isAuthenticated()).toBe(true);
@@ -56,7 +70,7 @@ describe('MemberSessionService', () => {
   it('should clear invalid member localStorage content', () => {
     localStorage.setItem(MEMBER_SESSION_KEY, '{broken');
 
-    TestBed.configureTestingModule({});
+    configureTestingModule();
     const service = TestBed.inject(MemberSessionService);
 
     expect(service.isAuthenticated()).toBe(false);
@@ -64,7 +78,7 @@ describe('MemberSessionService', () => {
   });
 
   it('should clear the member session', () => {
-    TestBed.configureTestingModule({});
+    configureTestingModule();
     const service = TestBed.inject(MemberSessionService);
 
     service.setMember({
