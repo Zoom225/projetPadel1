@@ -1,9 +1,9 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Terrain;
-import com.padelPlay.match.dto.MatchDto;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Terrain;
+import com.projetPadel1.dto.MatchDto;
 import org.springframework.stereotype.Service;
 
 @Service

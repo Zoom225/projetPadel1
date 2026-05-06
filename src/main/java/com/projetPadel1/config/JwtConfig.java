@@ -1,6 +1,7 @@
 package com.projetPadel1.config;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +51,7 @@ public class JwtConfig {
         try {
             extractClaims(token);
             return true;
-        } catch (Exception e) {
+        } catch (JwtException e) {
             log.warn("Invalid JWT token : {}", e.getMessage());
             return false;
         }
@@ -58,9 +59,9 @@ public class JwtConfig {
 
     private Claims extractClaims(String token) {
         return Jwts.parser()
-                .verifyWith(getSigningKey())
+                .setSigningKey(getSigningKey())
                 .build()
-                .parseSignedClaims(token)
-                .getPayload();
+                .parseClaimsJws(token)
+                .getBody();
     }
 }

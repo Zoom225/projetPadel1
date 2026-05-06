@@ -1,10 +1,10 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.dto.request.MembreRequest;
-import com.padelPlay.dto.response.MembreResponse;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Site;
-import com.padelPlay.entity.enums.TypeMembre;
+import com.projetPadel1.dto.request.MembreRequest;
+import com.projetPadel1.dto.response.MembreResponse;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Site;
+import com.projetPadel1.entity.enums.TypeMembre;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

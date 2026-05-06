@@ -1,13 +1,13 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.dto.response.PaiementResponse;
-import com.padelPlay.dto.response.ReservationResponse;
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Paiement;
-import com.padelPlay.entity.Reservation;
-import com.padelPlay.entity.enums.StatutPaiement;
-import com.padelPlay.entity.enums.StatutReservation;
+import com.projetPadel1.dto.response.PaiementResponse;
+import com.projetPadel1.dto.response.ReservationResponse;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Paiement;
+import com.projetPadel1.entity.Reservation;
+import com.projetPadel1.entity.enums.StatutPaiement;
+import com.projetPadel1.entity.enums.StatutReservation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

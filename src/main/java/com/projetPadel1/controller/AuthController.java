@@ -1,8 +1,8 @@
 package com.projetPadel1.controller;
 
-import com.padelPlay.dto.request.LoginRequest;
-import com.padelPlay.dto.response.LoginResponse;
-import com.padelPlay.service.AuthService;
+import com.projetPadel1.dto.request.LoginRequest;
+import com.projetPadel1.dto.response.LoginResponse;
+import com.projetPadel1.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

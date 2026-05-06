@@ -1,6 +1,6 @@
 package com.projetPadel1.dto.request;
 
-import com.padelPlay.entity.enums.TypeMembre;
+import com.projetPadel1.entity.enums.TypeMembre;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

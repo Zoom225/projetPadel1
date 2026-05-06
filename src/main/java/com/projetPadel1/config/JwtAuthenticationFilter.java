@@ -1,9 +1,9 @@
 package com.projetPadel1.config;
 
-import com.padelPlay.entity.Administrateur;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.repository.AdministrateurRepository;
-import com.padelPlay.repository.MembreRepository;
+import com.projetPadel1.entity.Administrateur;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.repository.AdministrateurRepository;
+import com.projetPadel1.repository.MembreRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,16 +1,16 @@
 package com.projetPadel1.service.impl;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Paiement;
-import com.padelPlay.entity.Reservation;
-import com.padelPlay.entity.enums.StatutPaiement;
-import com.padelPlay.exception.BusinessException;
-import com.padelPlay.exception.ResourceNotFoundException;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.repository.PaiementRepository;
-import com.padelPlay.service.PaiementService;
-import com.padelPlay.service.ReservationService;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Paiement;
+import com.projetPadel1.entity.Reservation;
+import com.projetPadel1.entity.enums.StatutPaiement;
+import com.projetPadel1.exception.BusinessException;
+import com.projetPadel1.exception.ResourceNotFoundException;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.repository.PaiementRepository;
+import com.projetPadel1.service.PaiementService;
+import com.projetPadel1.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

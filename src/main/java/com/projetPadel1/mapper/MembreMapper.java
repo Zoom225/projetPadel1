@@ -1,8 +1,8 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.dto.request.MembreRequest;
-import com.padelPlay.dto.response.MembreResponse;
-import com.padelPlay.entity.Membre;
+import com.projetPadel1.dto.request.MembreRequest;
+import com.projetPadel1.dto.response.MembreResponse;
+import com.projetPadel1.entity.Membre;
 import org.springframework.stereotype.Component;
 
 @Component
