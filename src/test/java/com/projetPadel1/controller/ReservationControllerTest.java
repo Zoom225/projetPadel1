@@ -1,16 +1,16 @@
 package com.projetPadel1.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.padelPlay.config.JwtAuthenticationFilter;
-import com.padelPlay.config.JwtConfig;
-import com.padelPlay.config.SecurityConfig;
-import com.padelPlay.dto.request.ReservationRequest;
-import com.padelPlay.dto.response.ReservationResponse;
-import com.padelPlay.entity.Reservation;
-import com.padelPlay.mapper.ReservationMapper;
-import com.padelPlay.repository.AdministrateurRepository;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.service.ReservationService;
+import com.projetPadel1.config.JwtAuthenticationFilter;
+import com.projetPadel1.config.JwtConfig;
+import com.projetPadel1.config.SecurityConfig;
+import com.projetPadel1.dto.request.ReservationRequest;
+import com.projetPadel1.dto.response.ReservationResponse;
+import com.projetPadel1.entity.Reservation;
+import com.projetPadel1.mapper.ReservationMapper;
+import com.projetPadel1.repository.AdministrateurRepository;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.service.ReservationService;
 import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

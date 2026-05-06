@@ -1,16 +1,16 @@
 package com.projetPadel1.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.padelPlay.config.JwtConfig;
-import com.padelPlay.config.SecurityConfig;
-import com.padelPlay.dto.request.MembreRequest;
-import com.padelPlay.dto.response.MembreResponse;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.mapper.MembreMapper;
-import com.padelPlay.repository.AdministrateurRepository;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.service.MembreService;
-import com.padelPlay.service.SiteService;
+import com.projetPadel1.config.JwtConfig;
+import com.projetPadel1.config.SecurityConfig;
+import com.projetPadel1.dto.request.MembreRequest;
+import com.projetPadel1.dto.response.MembreResponse;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.mapper.MembreMapper;
+import com.projetPadel1.repository.AdministrateurRepository;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.service.MembreService;
+import com.projetPadel1.service.SiteService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -65,7 +65,7 @@ class MembreControllerTest {
         membreRequest.setMatricule("L12345");
         membreRequest.setNom("Doe");
         membreRequest.setPrenom("John");
-        membreRequest.setTypeMembre(com.padelPlay.entity.enums.TypeMembre.GLOBAL);
+        membreRequest.setTypeMembre(com.projetPadel1.entity.enums.TypeMembre.GLOBAL);
 
         membreResponse = new MembreResponse();
         membreResponse.setId(1L);

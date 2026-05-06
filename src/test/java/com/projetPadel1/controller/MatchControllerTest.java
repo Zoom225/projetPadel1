@@ -1,14 +1,14 @@
 package com.projetPadel1.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.padelPlay.config.JwtConfig;
-import com.padelPlay.entity.enums.StatutMatch;
-import com.padelPlay.entity.enums.TypeMatch;
-import com.padelPlay.match.dto.CreateMatchRequest;
-import com.padelPlay.match.dto.MatchDto;
-import com.padelPlay.repository.AdministrateurRepository;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.service.MatchService;
+import com.projetPadel1.config.JwtConfig;
+import com.projetPadel1.entity.enums.StatutMatch;
+import com.projetPadel1.entity.enums.TypeMatch;
+import com.projetPadel1.dto.CreateMatchRequest;
+import com.projetPadel1.dto.MatchDto;
+import com.projetPadel1.repository.AdministrateurRepository;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.service.MatchService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

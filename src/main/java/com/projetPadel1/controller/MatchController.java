@@ -1,8 +1,8 @@
 package com.projetPadel1.controller;
 
-import com.padelPlay.match.dto.CreateMatchRequest;
-import com.padelPlay.match.dto.MatchDto;
-import com.padelPlay.service.MatchService;
+import com.projetPadel1.dto.CreateMatchRequest;
+import com.projetPadel1.dto.MatchDto;
+import com.projetPadel1.service.MatchService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

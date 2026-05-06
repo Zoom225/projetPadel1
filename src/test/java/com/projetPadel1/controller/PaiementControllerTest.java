@@ -1,14 +1,14 @@
 package com.projetPadel1.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.padelPlay.config.JwtConfig;
-import com.padelPlay.config.SecurityConfig;
-import com.padelPlay.dto.response.PaiementResponse;
-import com.padelPlay.entity.Paiement;
-import com.padelPlay.mapper.PaiementMapper;
-import com.padelPlay.repository.AdministrateurRepository;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.service.PaiementService;
+import com.projetPadel1.config.JwtConfig;
+import com.projetPadel1.config.SecurityConfig;
+import com.projetPadel1.dto.response.PaiementResponse;
+import com.projetPadel1.entity.Paiement;
+import com.projetPadel1.mapper.PaiementMapper;
+import com.projetPadel1.repository.AdministrateurRepository;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.service.PaiementService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

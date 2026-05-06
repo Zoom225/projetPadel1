@@ -1,8 +1,8 @@
 package com.projetPadel1.service;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.match.dto.CreateMatchRequest;
-import com.padelPlay.match.dto.MatchDto;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.dto.CreateMatchRequest;
+import com.projetPadel1.dto.MatchDto;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public interface MatchService {
      *
      * @param id L'identifiant du match.
      * @return L'entité Match correspondante.
-     * @throws com.padelPlay.exception.ResourceNotFoundException si le match n'est pas trouvé.
+     * @throws com.projetPadel1.exception.ResourceNotFoundException si le match n'est pas trouvé.
      */
     Match getById(Long id);
 

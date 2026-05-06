@@ -1,7 +1,7 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.dto.response.ReservationResponse;
-import com.padelPlay.entity.Reservation;
+import com.projetPadel1.dto.response.ReservationResponse;
+import com.projetPadel1.entity.Reservation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

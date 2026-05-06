@@ -1,20 +1,20 @@
 package com.projetPadel1.service;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Site;
-import com.padelPlay.entity.Terrain;
-import com.padelPlay.entity.enums.StatutMatch;
-import com.padelPlay.entity.enums.TypeMatch;
-import com.padelPlay.entity.enums.TypeMembre;
-import com.padelPlay.exception.BusinessException;
-import com.padelPlay.exception.ResourceNotFoundException;
-import com.padelPlay.mapper.MatchMapper;
-import com.padelPlay.match.dto.CreateMatchRequest;
-import com.padelPlay.match.dto.MatchDto;
-import com.padelPlay.repository.MatchRepository;
-import com.padelPlay.repository.MembreRepository;
-import com.padelPlay.service.impl.MatchServiceImpl;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Site;
+import com.projetPadel1.entity.Terrain;
+import com.projetPadel1.entity.enums.StatutMatch;
+import com.projetPadel1.entity.enums.TypeMatch;
+import com.projetPadel1.entity.enums.TypeMembre;
+import com.projetPadel1.exception.BusinessException;
+import com.projetPadel1.exception.ResourceNotFoundException;
+import com.projetPadel1.mapper.MatchMapper;
+import com.projetPadel1.dto.CreateMatchRequest;
+import com.projetPadel1.dto.MatchDto;
+import com.projetPadel1.repository.MatchRepository;
+import com.projetPadel1.repository.MembreRepository;
+import com.projetPadel1.service.impl.MatchServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,8 +28,7 @@ import java.time.LocalTime;
 import java.util.Collections;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

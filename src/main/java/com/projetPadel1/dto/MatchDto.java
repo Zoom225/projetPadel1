@@ -1,7 +1,7 @@
 package com.projetPadel1.dto;
 
-import com.padelPlay.entity.enums.StatutMatch;
-import com.padelPlay.entity.enums.TypeMatch;
+import com.projetPadel1.entity.enums.StatutMatch;
+import com.projetPadel1.entity.enums.TypeMatch;
 import java.time.LocalDateTime;
 
 public record MatchDto(

@@ -1,8 +1,8 @@
 package com.projetPadel1.controller;
 
-import com.padelPlay.dto.response.PaiementResponse;
-import com.padelPlay.mapper.PaiementMapper;
-import com.padelPlay.service.PaiementService;
+import com.projetPadel1.dto.response.PaiementResponse;
+import com.projetPadel1.mapper.PaiementMapper;
+import com.projetPadel1.service.PaiementService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

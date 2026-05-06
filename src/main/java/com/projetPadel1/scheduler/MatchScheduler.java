@@ -1,7 +1,7 @@
 package com.projetPadel1.scheduler;
 
-import com.padelPlay.service.MatchService;
-import com.padelPlay.service.PaiementService;
+import com.projetPadel1.service.MatchService;
+import com.projetPadel1.service.PaiementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

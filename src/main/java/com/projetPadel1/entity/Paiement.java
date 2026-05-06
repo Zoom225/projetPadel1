@@ -2,7 +2,7 @@ package com.projetPadel1.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.padelPlay.entity.enums.StatutPaiement;
+import com.projetPadel1.entity.enums.StatutPaiement;
 import jakarta.persistence.*;
 import lombok.*;
 

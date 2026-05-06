@@ -1,6 +1,6 @@
 package com.projetPadel1.repository;
 
-import com.padelPlay.entity.Administrateur;
+import com.projetPadel1.entity.Administrateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

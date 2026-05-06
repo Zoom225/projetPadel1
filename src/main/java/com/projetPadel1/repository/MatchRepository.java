@@ -1,8 +1,8 @@
 package com.projetPadel1.repository;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.enums.StatutMatch;
-import com.padelPlay.entity.enums.TypeMatch;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.enums.StatutMatch;
+import com.projetPadel1.entity.enums.TypeMatch;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

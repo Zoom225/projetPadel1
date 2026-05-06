@@ -1,12 +1,12 @@
 package com.projetPadel1.mapper;
 
-import com.padelPlay.entity.Match;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Site;
-import com.padelPlay.entity.Terrain;
-import com.padelPlay.entity.enums.StatutMatch;
-import com.padelPlay.entity.enums.TypeMatch;
-import com.padelPlay.match.dto.MatchDto;
+import com.projetPadel1.entity.Match;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Site;
+import com.projetPadel1.entity.Terrain;
+import com.projetPadel1.entity.enums.StatutMatch;
+import com.projetPadel1.entity.enums.TypeMatch;
+import com.projetPadel1.dto.MatchDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

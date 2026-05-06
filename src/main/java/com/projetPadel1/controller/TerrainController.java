@@ -1,10 +1,10 @@
 package com.projetPadel1.controller;
 
-import com.padelPlay.dto.request.TerrainRequest;
-import com.padelPlay.dto.response.TerrainResponse;
-import com.padelPlay.entity.Terrain;
-import com.padelPlay.mapper.TerrainMapper;
-import com.padelPlay.service.TerrainService;
+import com.projetPadel1.dto.request.TerrainRequest;
+import com.projetPadel1.dto.response.TerrainResponse;
+import com.projetPadel1.entity.Terrain;
+import com.projetPadel1.mapper.TerrainMapper;
+import com.projetPadel1.service.TerrainService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

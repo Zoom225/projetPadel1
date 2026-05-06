@@ -1,7 +1,7 @@
 package com.projetPadel1.repository;
 
 
-import com.padelPlay.entity.Penalite;
+import com.projetPadel1.entity.Penalite;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

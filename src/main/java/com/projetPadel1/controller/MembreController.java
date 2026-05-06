@@ -1,13 +1,13 @@
 package com.projetPadel1.controller;
 
-import com.padelPlay.config.JwtConfig;
-import com.padelPlay.dto.request.MembreRequest;
-import com.padelPlay.dto.response.MembreResponse;
-import com.padelPlay.entity.Membre;
-import com.padelPlay.entity.Site;
-import com.padelPlay.mapper.MembreMapper;
-import com.padelPlay.service.MembreService;
-import com.padelPlay.service.SiteService;
+import com.projetPadel1.config.JwtConfig;
+import com.projetPadel1.dto.request.MembreRequest;
+import com.projetPadel1.dto.response.MembreResponse;
+import com.projetPadel1.entity.Membre;
+import com.projetPadel1.entity.Site;
+import com.projetPadel1.mapper.MembreMapper;
+import com.projetPadel1.service.MembreService;
+import com.projetPadel1.service.SiteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -147,7 +147,7 @@ public class MembreController {
         try {
             membreService.getById(id);
             return ResponseEntity.ok(membreService.hasActivePenalty(id));
-        } catch (com.padelPlay.exception.ResourceNotFoundException ex) {
+        } catch (com.projetPadel1.exception.ResourceNotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
@@ -174,7 +174,7 @@ public class MembreController {
         try {
             membreService.getById(id);
             return ResponseEntity.ok(membreService.hasOutstandingBalance(id));
-        } catch (com.padelPlay.exception.ResourceNotFoundException ex) {
+        } catch (com.projetPadel1.exception.ResourceNotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
