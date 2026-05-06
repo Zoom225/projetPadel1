@@ -1,15 +1,23 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { beforeEach, describe, expect, it } from 'vitest';
-import { MEMBER_SESSION_KEY } from '../auth/member-session.service';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { MemberSessionService } from '../auth/member-session.service';
 import { memberGuard } from './member.guard';
 
 describe('memberGuard', () => {
+  let memberSessionMock: { isAuthenticated: ReturnType<typeof vi.fn> };
+
   beforeEach(() => {
     localStorage.clear();
     TestBed.resetTestingModule();
+    memberSessionMock = {
+      isAuthenticated: vi.fn().mockReturnValue(false)
+    };
     TestBed.configureTestingModule({
-      providers: [provideRouter([])]
+      providers: [
+        provideRouter([]),
+        { provide: MemberSessionService, useValue: memberSessionMock }
+      ]
     });
   });
 
@@ -22,20 +30,7 @@ describe('memberGuard', () => {
   });
 
   it('should allow access when member session exists', () => {
-    localStorage.setItem(
-      MEMBER_SESSION_KEY,
-      JSON.stringify({
-        id: 3,
-        matricule: 'G1234',
-        nom: 'Doe',
-        prenom: 'Jane',
-        email: 'jane@example.com',
-        typeMembre: 'GLOBAL',
-        siteId: null,
-        siteNom: null,
-        solde: 0
-      })
-    );
+    memberSessionMock.isAuthenticated.mockReturnValue(true);
 
     const result = TestBed.runInInjectionContext(() => memberGuard({} as never, {} as never));
 

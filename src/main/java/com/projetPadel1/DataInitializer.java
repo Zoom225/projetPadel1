@@ -4,7 +4,6 @@ import com.projetPadel1.entity.*;
 import com.projetPadel1.entity.enums.TypeAdministrateur;
 import com.projetPadel1.entity.enums.TypeMembre;
 import com.projetPadel1.repository.*;
-import com.projetPadel1.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -65,12 +64,13 @@ public class DataInitializer implements CommandLineRunner {
         // ----------------------------------------------------------------
         // Terrains
         // ----------------------------------------------------------------
-        terrainRepository.save(Terrain.builder().nom("Court A").site(siteLyon).build());
-        terrainRepository.save(Terrain.builder().nom("Court B").site(siteLyon).build());
-        terrainRepository.save(Terrain.builder().nom("Court C").site(siteLyon).build());
+        // Note: Adding arbitrary prices to courts for testing purposes
+        terrainRepository.save(Terrain.builder().nom("Court A").prix(40.0).site(siteLyon).build());
+        terrainRepository.save(Terrain.builder().nom("Court B").prix(40.0).site(siteLyon).build());
+        terrainRepository.save(Terrain.builder().nom("Court C").prix(40.0).site(siteLyon).build());
 
-        terrainRepository.save(Terrain.builder().nom("Court 1").site(siteParis).build());
-        terrainRepository.save(Terrain.builder().nom("Court 2").site(siteParis).build());
+        terrainRepository.save(Terrain.builder().nom("Court 1").prix(60.0).site(siteParis).build());
+        terrainRepository.save(Terrain.builder().nom("Court 2").prix(60.0).site(siteParis).build());
 
         log.info("DataInitializer : {} courts created", terrainRepository.count());
 

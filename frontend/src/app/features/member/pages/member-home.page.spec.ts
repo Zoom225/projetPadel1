@@ -24,7 +24,7 @@ describe('MemberHomePage', () => {
   let membresApiMock: { getByMatricule: ReturnType<typeof vi.fn> };
   let memberSessionMock: {
     isAuthenticated: ReturnType<typeof vi.fn>;
-    setMember: ReturnType<typeof vi.fn>;
+    login: ReturnType<typeof vi.fn>;
   };
 
   beforeEach(async () => {
@@ -36,7 +36,7 @@ describe('MemberHomePage', () => {
 
     memberSessionMock = {
       isAuthenticated: vi.fn().mockReturnValue(false),
-      setMember: vi.fn()
+      login: vi.fn().mockReturnValue(of(member))
     };
 
     await TestBed.configureTestingModule({
@@ -76,8 +76,7 @@ describe('MemberHomePage', () => {
     component.form.controls.matricule.setValue('s10001');
     component.submit();
 
-    expect(membresApiMock.getByMatricule).toHaveBeenCalledWith('S10001');
-    expect(memberSessionMock.setMember).toHaveBeenCalledWith(member);
+    expect(memberSessionMock.login).toHaveBeenCalledWith('S10001');
     expect(component.foundMember()).toEqual(member);
 
     vi.advanceTimersByTime(600);
@@ -86,7 +85,7 @@ describe('MemberHomePage', () => {
   });
 
   it('affiche un message utile quand le matricule est introuvable', () => {
-    membresApiMock.getByMatricule.mockReturnValue(
+    memberSessionMock.login.mockReturnValue(
       throwError(() => ({ error: { message: 'Membre introuvable' } }))
     );
     const router = TestBed.inject(Router);
@@ -100,7 +99,7 @@ describe('MemberHomePage', () => {
     expect(component.loading()).toBe(false);
     expect(component.errorMessage()).toContain('Matricule introuvable');
     expect(component.errorMessage()).toContain('G1001');
-    expect(memberSessionMock.setMember).not.toHaveBeenCalled();
+    expect(memberSessionMock.login).toHaveBeenCalledWith('L99999');
     expect(navigateSpy).not.toHaveBeenCalledWith('/member/profile');
   });
 });

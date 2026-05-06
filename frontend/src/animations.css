@@ -1,0 +1,407 @@
+/*
+ * Fichier: src/animations.css
+ * Animations et effets visuels avancés pour PadelPlay
+ */
+
+/* ====== ANIMATIONS PRINCIPALES ====== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ====== BOUNCE ANIMATIONS ====== */
+
+@keyframes ballBounce {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-20px) scaleY(1.05);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(22, 163, 74, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.6), 0 0 30px rgba(22, 163, 74, 0.3);
+  }
+}
+
+/* ====== FLOATING ANIMATION ====== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ====== SHIMMER EFFECT ====== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-animation {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    #f0fdf4 0%,
+    #dcfce7 50%,
+    #f0fdf4 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* ====== HOVER EFFECTS ====== */
+
+.hover-lift {
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 300ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+  transition: box-shadow 300ms ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.4),
+              0 0 40px rgba(22, 163, 74, 0.2);
+}
+
+.hover-scale {
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-bright {
+  transition: filter 300ms ease;
+}
+
+.hover-bright:hover {
+  filter: brightness(1.1);
+}
+
+/* ====== LOADING ANIMATIONS ====== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-fast {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ====== PAGE TRANSITIONS ====== */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* ====== FORM ANIMATIONS ====== */
+
+@keyframes inputFocus {
+  from {
+    border-color: rgba(22, 163, 74, 0.2);
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+  to {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+  }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  animation: inputFocus 300ms ease-out forwards;
+}
+
+/* ====== SUCCESS/ERROR ANIMATIONS ====== */
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.5) rotate(-5deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.success-animation {
+  animation: successPop 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.error-animation {
+  animation: errorShake 500ms ease-in-out;
+}
+
+/* ====== BADGE ANIMATIONS ====== */
+
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
+  }
+}
+
+.badge-pulse {
+  animation: badgePulse 2s infinite;
+}
+
+/* ====== HERO SECTION ANIMATIONS ====== */
+
+.hero-animated {
+  animation: slideInDown 800ms ease-out;
+}
+
+.hero-title {
+  animation: slideInUp 800ms ease-out 200ms backwards;
+}
+
+.hero-subtitle {
+  animation: slideInUp 800ms ease-out 400ms backwards;
+}
+
+.hero-cta {
+  animation: slideInUp 800ms ease-out 600ms backwards;
+}
+
+/* ====== CARD ENTRANCE ANIMATIONS ====== */
+
+.card-animated {
+  animation: fadeInScale 600ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-stagger:nth-child(1) { animation-delay: 0ms; }
+.card-stagger:nth-child(2) { animation-delay: 100ms; }
+.card-stagger:nth-child(3) { animation-delay: 200ms; }
+.card-stagger:nth-child(4) { animation-delay: 300ms; }
+.card-stagger:nth-child(5) { animation-delay: 400ms; }
+.card-stagger:nth-child(n+6) { animation-delay: 500ms; }
+
+/* ====== UTILITY CLASSES ====== */
+
+.animate-in-up {
+  animation: slideInUp 600ms ease-out;
+}
+
+.animate-in-down {
+  animation: slideInDown 600ms ease-out;
+}
+
+.animate-in-left {
+  animation: slideInLeft 600ms ease-out;
+}
+
+.animate-in-right {
+  animation: slideInRight 600ms ease-out;
+}
+
+.animate-zoom {
+  animation: zoomIn 600ms ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-ball-bounce {
+  animation: ballBounce 1s ease-in-out infinite;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ====== TRUNCATION & TEXT ====== */
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ====== ACCESSIBILITY ====== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ====== DARK MODE SUPPORT ====== */
+
+@media (prefers-color-scheme: dark) {
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(168, 240, 112, 0.3),
+                0 0 40px rgba(168, 240, 112, 0.15);
+  }
+}
+

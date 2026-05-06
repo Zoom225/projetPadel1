@@ -26,317 +26,142 @@ import { MembreResponse } from '../../../shared/models/membre.model';
     MatChipsModule,
   ],
   template: `
-    <!-- Hero banner padel -->
-    <div class="padel-hero">
-      <div class="padel-hero-content">
-        <div class="padel-ball">🎾</div>
-        <h1 class="padel-hero-title">Espace Membre Padel</h1>
-        <p class="padel-hero-sub">Entrez votre matricule pour accéder à votre espace de jeu</p>
+    <!-- Hero Banner Padel -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-padel overflow-hidden pt-20 pb-12 px-4">
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-court-300 rounded-full mix-blend-multiply filter blur-3xl" style="animation: pulse 4s 2s infinite;"></div>
       </div>
-    </div>
 
-    <section class="page-shell max-w-4xl">
-      <!-- Carte identification -->
-      <div class="padel-login-card">
-        <div class="padel-login-icon">🏓</div>
-        <h2 class="padel-login-title">Identification</h2>
-        <p class="padel-login-sub">Saisissez votre matricule pour rejoindre le court</p>
+      <div class="relative z-10 w-full max-w-md">
+        <!-- Main Card -->
+        <div class="bg-white rounded-3xl shadow-padel-lg p-8 md:p-12 overflow-hidden">
+          <!-- Top decoration bar -->
+          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-padel-600 via-padel-500 to-court-600"></div>
 
-        <form [formGroup]="form" class="padel-form" (ngSubmit)="submit()">
-          <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Matricule</mat-label>
-            <input
-              matInput
-              formControlName="matricule"
-              placeholder="Ex: G1234, S12345, L12345"
-              style="text-transform:uppercase; font-weight:600; letter-spacing:0.08em;"
-            />
-          </mat-form-field>
-
-          <!-- Légende des types -->
-          <div class="padel-types-grid">
-            <div class="padel-type-badge padel-type-global">
-              <span class="padel-type-icon">🌍</span>
-              <div>
-                <div class="padel-type-name">GLOBAL</div>
-                <div class="padel-type-hint">G + 4 chiffres · Tous les sites</div>
-              </div>
-            </div>
-            <div class="padel-type-badge padel-type-site">
-              <span class="padel-type-icon">🏟️</span>
-              <div>
-                <div class="padel-type-name">SITE</div>
-                <div class="padel-type-hint">S + 5 chiffres · Site dédié</div>
-              </div>
-            </div>
-            <div class="padel-type-badge padel-type-libre">
-              <span class="padel-type-icon">⚡</span>
-              <div>
-                <div class="padel-type-name">LIBRE</div>
-                <div class="padel-type-hint">L + 5 chiffres · Accès libre</div>
-              </div>
+          <!-- Icon -->
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-padel-100 to-court-100 rounded-2xl">
+              <span class="text-4xl animate-bounce-slow">🏓</span>
             </div>
           </div>
 
-          @if (errorMessage()) {
-            <div class="padel-error"><span>❌</span> {{ errorMessage() }}</div>
-          }
+          <!-- Title & Subtitle -->
+          <h2 class="text-3xl md:text-4xl font-black text-center text-padel-900 mb-2">
+            Identification
+          </h2>
+          <p class="text-center text-slate-600 mb-8">
+            Saisissez votre matricule pour rejoindre le court 🎾
+          </p>
 
-          <!-- Résultat trouvé en prévisualisation -->
-          @if (foundMember()) {
-            <div class="padel-found-card">
-              <div class="padel-found-icon">✅</div>
-              <div>
-                <div class="padel-found-name">
-                  {{ foundMember()!.prenom }} {{ foundMember()!.nom }}
-                </div>
-                <div class="padel-found-details">
-                  <span
-                    class="padel-badge-type"
-                    [class]="'padel-badge-' + foundMember()!.typeMembre.toLowerCase()"
-                  >
-                    {{ foundMember()!.typeMembre }}
-                  </span>
-                  <span>· {{ foundMember()!.siteNom || 'Tous les sites' }}</span>
-                </div>
-              </div>
-            </div>
-          }
-
-          <div class="padel-form-actions">
-            <button class="padel-btn-primary" type="submit" [disabled]="form.invalid || loading()">
-              @if (loading()) {
-                <mat-spinner
-                  diameter="20"
-                  style="display:inline-block; margin-right:8px;"
-                ></mat-spinner>
+          <!-- Form -->
+          <form [formGroup]="form" class="space-y-6" (ngSubmit)="submit()">
+            <!-- Input field -->
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-900">Votre Matricule</label>
+              <input
+                matInput
+                formControlName="matricule"
+                placeholder="Ex: G1234, S12345, L12345"
+                class="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-padel-600 focus:outline-none focus:ring-4 focus:ring-padel-200 text-lg font-bold tracking-widest uppercase transition-all duration-300"
+                style="letter-spacing:0.08em;"
+              />
+              @if (form.get('matricule')?.invalid && form.get('matricule')?.touched) {
+                <p class="text-xs font-medium text-red-600">Format: G#####, S#####, ou L#####</p>
               }
-              🎾 Accéder à mon espace
+            </div>
+
+            <!-- Types Legend -->
+            <div class="rounded-2xl bg-gradient-to-br from-padel-50 to-court-50 p-4 border-2 border-padel-100">
+              <p class="text-xs font-bold text-slate-600 mb-3 uppercase tracking-wider">Types de Membres</p>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white transition-colors">
+                  <span class="text-xl">🌍</span>
+                  <div class="text-xs">
+                    <p class="font-bold text-slate-900">GLOBAL</p>
+                    <p class="text-slate-600">G + 4 chiffres · Tous les sites</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white transition-colors">
+                  <span class="text-xl">🏟️</span>
+                  <div class="text-xs">
+                    <p class="font-bold text-slate-900">SITE</p>
+                    <p class="text-slate-600">S + 5 chiffres · Site dédié</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white transition-colors">
+                  <span class="text-xl">⚡</span>
+                  <div class="text-xs">
+                    <p class="font-bold text-slate-900">LIBRE</p>
+                    <p class="text-slate-600">L + 5 chiffres · Accès libre</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            @if (errorMessage()) {
+              <div class="p-4 rounded-xl bg-red-50 border-2 border-red-200 flex items-center gap-3">
+                <span class="text-2xl">❌</span>
+                <p class="text-sm font-medium text-red-700">{{ errorMessage() }}</p>
+              </div>
+            }
+
+            <!-- Found Member Preview -->
+            @if (foundMember()) {
+              <div class="p-4 rounded-xl bg-gradient-to-r from-padel-50 to-padel-100 border-2 border-padel-300 flex items-center gap-4">
+                <span class="text-3xl animate-pulse">✅</span>
+                <div class="flex-1">
+                  <p class="font-bold text-padel-900">
+                    {{ foundMember()!.prenom }} {{ foundMember()!.nom }}
+                  </p>
+                  <div class="flex items-center gap-2 mt-1 flex-wrap">
+                    <span
+                      class="inline-block px-3 py-1 rounded-full text-xs font-bold"
+                      [class.bg-blue-100]="foundMember()!.typeMembre === 'GLOBAL'"
+                      [class.text-blue-700]="foundMember()!.typeMembre === 'GLOBAL'"
+                      [class.bg-green-100]="foundMember()!.typeMembre === 'SITE'"
+                      [class.text-green-700]="foundMember()!.typeMembre === 'SITE'"
+                      [class.bg-yellow-100]="foundMember()!.typeMembre === 'LIBRE'"
+                      [class.text-yellow-700]="foundMember()!.typeMembre === 'LIBRE'"
+                    >
+                      {{ foundMember()!.typeMembre }}
+                    </span>
+                    <span class="text-xs text-slate-600">· {{ foundMember()!.siteNom || '🌍 Tous les sites' }}</span>
+                  </div>
+                </div>
+              </div>
+            }
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              [disabled]="form.invalid || loading()"
+              class="w-full py-4 px-6 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-padel-600 to-padel-500 hover:shadow-padel-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-3"
+            >
+              @if (loading()) {
+                <div class="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin"></div>
+                <span>Vérification...</span>
+              } @else {
+                <span>🎾 Accéder à mon espace</span>
+              }
             </button>
+          </form>
+
+          <!-- Footer -->
+          <div class="text-center mt-8 pt-6 border-t border-slate-200">
+            <p class="text-xs text-slate-500 font-medium">
+              Version Beta - Tous les matchs enregistrés sont en cour de traitement
+            </p>
           </div>
-        </form>
+        </div>
       </div>
     </section>
 
     <style>
-      .padel-hero {
-        background: linear-gradient(135deg, #166534 0%, #15803d 40%, #16a34a 70%, #86efac 100%);
-        padding: 3rem 1.5rem 4rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .padel-hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-          repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 40px,
-            rgba(255, 255, 255, 0.04) 40px,
-            rgba(255, 255, 255, 0.04) 42px
-          ),
-          repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 40px,
-            rgba(255, 255, 255, 0.04) 40px,
-            rgba(255, 255, 255, 0.04) 42px
-          );
-      }
-      .padel-hero-content {
-        position: relative;
-        z-index: 1;
-      }
-      .padel-ball {
-        font-size: 4rem;
-        margin-bottom: 0.5rem;
-        animation: spin 8s linear infinite;
-      }
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .padel-hero-title {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: #fff;
-        margin: 0 0 0.5rem;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      }
-      .padel-hero-sub {
-        color: rgba(255, 255, 255, 0.88);
-        font-size: 1.05rem;
-        margin: 0;
-      }
-
-      .padel-login-card {
-        background: #fff;
-        border-radius: 1.5rem;
-        box-shadow:
-          0 20px 60px rgba(22, 101, 52, 0.15),
-          0 4px 16px rgba(0, 0, 0, 0.08);
-        padding: 2.5rem 2rem;
-        text-align: center;
-        border-top: 5px solid #16a34a;
-        margin-top: -2.5rem;
-      }
-      .padel-login-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .padel-login-title {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #14532d;
-        margin: 0 0 0.3rem;
-      }
-      .padel-login-sub {
-        color: #6b7280;
-        margin: 0 0 1.5rem;
-      }
-      .padel-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: left;
-      }
-
-      .padel-types-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-        gap: 0.75rem;
-      }
-      .padel-type-badge {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        padding: 0.75rem 1rem;
-        border-radius: 0.75rem;
-        border: 2px solid transparent;
-        transition: transform 0.15s;
-      }
-      .padel-type-badge:hover {
-        transform: translateY(-2px);
-      }
-      .padel-type-global {
-        background: #eff6ff;
-        border-color: #93c5fd;
-      }
-      .padel-type-site {
-        background: #f0fdf4;
-        border-color: #86efac;
-      }
-      .padel-type-libre {
-        background: #fefce8;
-        border-color: #fde047;
-      }
-      .padel-type-icon {
-        font-size: 1.5rem;
-      }
-      .padel-type-name {
-        font-weight: 700;
-        font-size: 0.85rem;
-        color: #1e293b;
-      }
-      .padel-type-hint {
-        font-size: 0.72rem;
-        color: #64748b;
-      }
-
-      .padel-error {
-        background: #fef2f2;
-        border: 1px solid #fca5a5;
-        border-radius: 0.75rem;
-        padding: 0.75rem 1rem;
-        color: #991b1b;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .padel-found-card {
-        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-        border: 2px solid #4ade80;
-        border-radius: 1rem;
-        padding: 1rem 1.25rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      .padel-found-icon {
-        font-size: 2rem;
-      }
-      .padel-found-name {
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: #14532d;
-      }
-      .padel-found-details {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.85rem;
-        color: #374151;
-        margin-top: 0.25rem;
-      }
-
-      .padel-badge-type {
-        display: inline-block;
-        padding: 0.15rem 0.6rem;
-        border-radius: 9999px;
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      .padel-badge-global {
-        background: #dbeafe;
-        color: #1d4ed8;
-      }
-      .padel-badge-site {
-        background: #dcfce7;
-        color: #15803d;
-      }
-      .padel-badge-libre {
-        background: #fef9c3;
-        color: #a16207;
-      }
-
-      .padel-form-actions {
-        display: flex;
-        justify-content: center;
-        padding-top: 0.5rem;
-      }
-      .padel-btn-primary {
-        background: linear-gradient(135deg, #15803d, #16a34a);
-        color: #fff;
-        border: none;
-        border-radius: 0.75rem;
-        padding: 0.85rem 2.5rem;
-        font-size: 1rem;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 15px rgba(21, 128, 61, 0.35);
-        transition:
-          transform 0.15s,
-          box-shadow 0.15s;
-      }
-      .padel-btn-primary:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(21, 128, 61, 0.45);
-      }
-      .padel-btn-primary:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
+      [matInput] {
+        font-family: 'Courier New', monospace;
       }
     </style>
   `,
